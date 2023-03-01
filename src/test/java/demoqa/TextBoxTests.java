@@ -20,25 +20,29 @@ public class TextBoxTests {
 
     @Test
     void fullFormTest() {
+        String userName = "Geo Sum";
+        String userEmail = "geosum@gmail.com";
+        String currentAddress = "1748 Ocean View apt 88";
+        String permanentAddress = "1750 Ocean View apt 90";
 
-    open("/text-box");
-    $(".main-header").shouldHave(text("Text Box"));
+        open("/text-box");
+        $(".main-header").shouldHave(text("Text Box"));
 
-    $("#userName").setValue("Geo Sum");
-    $("#userEmail").setValue("geosum@gmail.com");
-    $("#currentAddress").setValue("1748 Ocean View apt 88");
-    $("#permanentAddress").setValue("1750 Ocean View apt 90");
+        $("#userName").setValue(userName);
+        $("#userEmail").setValue(userEmail);
+        $("#currentAddress").setValue(currentAddress);
+        $("#permanentAddress").setValue(permanentAddress);
 
-    //fixing issue with an add overlaying submit button
-    $("#submit").scrollTo();
+        //fixing issue with an add overlaying submit button
+        $("#submit").scrollTo();
 
-    $("#submit").click();
+        $("#submit").click();
 
-    $("#output").shouldBe(visible);
-    $("#output").$("#name").shouldHave(text("Geo Sum"));
-    $("#output #email").shouldHave(text("geosum@gmail.com"));
-    $("#output #currentAddress").shouldHave(text("1748 Ocean View apt 88"));
-    $("#output #permanentAddress").shouldHave(text("1750 Ocean View apt 90"));
+        $("#output").shouldBe(visible);
+        $("#output").$("#name").shouldHave(text(userName));
+        $("#output #email").shouldHave(text(userEmail));
+        $("#output #currentAddress").shouldHave(text(currentAddress));
+        $("#output #permanentAddress").shouldHave(text(permanentAddress));
 
     }
 }
