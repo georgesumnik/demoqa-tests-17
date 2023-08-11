@@ -14,14 +14,13 @@ public class TextBoxTests {
 
     @BeforeAll
     static void beforeAll (){
-
-        Configuration.browserSize = "1024x768";
+        Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
     }
 
     @AfterAll
     static void afterAll (){
-        Configuration.holdBrowserOpen = true;
+        //Configuration.holdBrowserOpen = true;
     }
     @Test
     void fullFormTest() {
@@ -46,6 +45,7 @@ public class TextBoxTests {
         $("#output").shouldBe(visible);
         $("#output").$("#name").shouldHave(text(userName));
         $("#output #email").shouldHave(text(userEmail));
+        // todo check addresses
         $("#output #currentAddress").shouldHave(text(currentAddress));
         $("#output #permanentAddress").shouldHave(text(permanentAddress));
 
