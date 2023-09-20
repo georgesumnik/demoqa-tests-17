@@ -24,22 +24,23 @@ public class AutomationPracticeForm {
     static void afterAll() {
     }
 
+    String firstName = "Mike";
+    String lastName = "Duck";
+    String userEmail = "geosum@gmail.com";
+    String userNumber = "3538274936";
+    String userDobMonth = "September";
+    String userDobYear = "1999";
+    String subject1 = "Maths";
+    String subject2 = "Biology";
+    String currentAddress = "1748 Ocean View apt 88";
+
     @Test
     void registrationTest() throws InterruptedException {
 
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
 
-        String firstName = "Mike";
-        String lastName = "Duck";
-        String userEmail = "geosum@gmail.com";
-        String userNumber = "3538274936";
-        String userDobMonth = "September";
-        String userDobYear = "1999";
-        String subject1 = "Maths";
-        String subject2 = "Biology";
-        String currentAddress = "1748 Ocean View apt 88";
-        String permanentAddress = "1750 Ocean View apt 90";
+
 
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
@@ -59,7 +60,6 @@ public class AutomationPracticeForm {
 
         $("#hobbiesWrapper").$(byText("Sports")).click(); // best
 
-        $("#uploadPicture").uploadFile(new File("src/test/resources/img/1.png"));
         $("#uploadPicture").uploadFromClasspath("img/1.png");
 
         $("#currentAddress").setValue(currentAddress);
@@ -77,6 +77,18 @@ public class AutomationPracticeForm {
 
         $("div.modal-dialog").shouldBe(visible);
         $("div#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $("div.table-responsive").shouldHave(text(firstName), text(lastName), text(userEmail), text(userNumber));
+        $("div.table-responsive").shouldHave(
+                text(firstName),
+                text(lastName),
+                text(userEmail),
+                text(userNumber),
+                text(currentAddress),
+                text(userDobMonth),
+                text(userDobYear),
+                text(subject1),
+                text(subject2),
+                text(currentAddress));
+
+
     }
 }

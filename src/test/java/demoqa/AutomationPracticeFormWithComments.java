@@ -71,7 +71,7 @@ public class AutomationPracticeFormWithComments {
 
         $("#hobbiesWrapper").$(byText("Sports")).click(); // best
 
-        $("#uploadPicture").uploadFile(new File("src/test/resources/img/1.png"));
+        //$("#uploadPicture").uploadFile(new File("src/test/resources/img/1.png")); //second option
         $("#uploadPicture").uploadFromClasspath("img/1.png");
 
         $("#currentAddress").setValue(currentAddress);
